@@ -1,0 +1,788 @@
+<html><head><base href="https://harishportfolio.in/%20%20create%20like%20this">
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mohammed Arshath - Portfolio</title>
+        <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+        <style>
+            :root {
+                --primary-color: #000000;      
+                --accent-color: #64ffff;       
+                --text-color: #ffffff;         
+                --secondary-text: #8892b0;     
+                --hover-color: rgba(100, 255, 255, 0.1); 
+            }
+    
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+    
+            body {
+                font-family: 'Space Grotesk', sans-serif;
+                background-color: var(--primary-color);
+                color: var(--text-color);
+                overflow-x: hidden;
+            }
+    
+            .cursor {
+                width: 20px;
+                height: 20px;
+                border: 2px solid var(--accent-color);
+                border-radius: 50%;
+                position: fixed;
+                pointer-events: none;
+                z-index: 9999;
+                transition: transform 0.2s ease;
+            }
+    
+            .cursor-follower {
+                width: 8px;
+                height: 8px;
+                background: var(--accent-color);
+                border-radius: 50%;
+                position: fixed;
+                pointer-events: none;
+                z-index: 9999;
+                transition: transform 0.1s ease;
+            }
+    
+            nav {
+                position: fixed;
+                top: 0;
+                width: 100%;
+                padding: 20px 50px;
+                display: flex;
+                justify-content: flex-end;
+                background: rgba(0, 0, 0, 0.95);
+                backdrop-filter: blur(10px);
+                z-index: 100;
+            }
+    
+            .nav-links {
+                display: flex;
+                gap: 30px;
+            }
+    
+            .nav-links a {
+                color: var(--text-color);
+                text-decoration: none;
+                font-size: 16px;
+                transition: color 0.3s ease;
+                position: relative;
+            }
+    
+            .nav-links a::before {
+                content: "";
+                position: absolute;
+                width: 0;
+                height: 2px;
+                bottom: -5px;
+                left: 0;
+                background-color: var(--accent-color);
+                transition: width 0.3s ease;
+            }
+    
+            .nav-links a:hover::before {
+                width: 100%;
+            }
+    
+            .hero {
+                height: 100vh;
+                display: flex;
+                align-items: center;
+                padding: 0 100px;
+                position: relative;
+            }
+    
+            .hero-content {
+                max-width: 800px;
+            }
+    
+            .profile-area {
+                margin-bottom: 20px;
+                display: flex;
+                gap: 30px;
+                align-items: center;
+            }
+    
+            .logo-upload {
+                width: 150px;
+                height: 150px;
+                border-radius: 10px;
+                overflow: hidden;
+            }
+    
+            .hero-subtitle {
+                color: var(--accent-color);
+                font-size: 18px;
+                margin-bottom: 20px;
+                opacity: 0;
+                transform: translateY(20px);
+                animation: fadeInUp 0.5s ease forwards;
+            }
+    
+            .hero-title {
+                font-size: 72px;
+                line-height: 1.1;
+                margin-bottom: 20px;
+                opacity: 0;
+                transform: translateY(20px);
+                animation: fadeInUp 0.5s ease forwards 0.2s;
+            }
+    
+            .hero-description {
+                color: var(--secondary-text);
+                font-size: 20px;
+                max-width: 600px;
+                margin-bottom: 30px;
+                opacity: 0;
+                transform: translateY(20px);
+                animation: fadeInUp 0.5s ease forwards 0.4s;
+            }
+    
+            .cta-button {
+                display: inline-block;
+                padding: 15px 30px;
+                border: 2px solid var(--accent-color);
+                color: var(--accent-color);
+                text-decoration: none;
+                border-radius: 5px;
+                font-size: 16px;
+                transition: all 0.3s ease;
+                opacity: 0;
+                transform: translateY(20px);
+                animation: fadeInUp 0.5s ease forwards 0.6s;
+            }
+    
+            .cta-button:hover {
+                background-color: var(--hover-color);
+                transform: translateY(-2px);
+            }
+    
+            .social-links {
+                position: fixed;
+                left: 50px;
+                bottom: 0;
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                align-items: center;
+                opacity: 0;
+                animation: fadeIn 0.5s ease forwards 1s;
+            }
+    
+            .social-links::after {
+                content: "";
+                width: 2px;
+                height: 100px;
+                background-color: var(--secondary-text);
+            }
+    
+            .social-links a {
+                color: var(--secondary-text);
+                font-size: 20px;
+                transition: all 0.3s ease;
+            }
+    
+            .social-links a:hover {
+                color: var(--accent-color);
+                transform: translateY(-3px);
+            }
+    
+            @keyframes fadeInUp {
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+    
+            @keyframes fadeIn {
+                to {
+                    opacity: 1;
+                }
+            }
+    
+            .particles {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: -1;
+            }
+    
+            @media (max-width: 768px) {
+                nav {
+                    padding: 20px;
+                }
+    
+                .hero {
+                    padding: 0 20px;
+                }
+    
+                .hero-title {
+                    font-size: 48px;
+                }
+    
+                .social-links {
+                    display: none;
+                }
+            }
+            
+            html, body {
+                height: auto;
+                min-height: 100vh;
+            }
+    
+            .skills-section {
+                padding: 40px 0;
+            }
+    
+            .skills-category {
+                margin-bottom: 40px;
+            }
+    
+            .skills-category h3 {
+                color: var(--accent-color);
+                font-size: 24px;
+                margin-bottom: 20px;
+                position: relative;
+                padding-left: 15px;
+            }
+    
+            .skills-category h3::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 5px;
+                height: 20px;
+                background: var(--accent-color);
+                border-radius: 3px;
+            }
+    
+            .skills-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                gap: 20px;
+                margin-top: 20px;
+            }
+    
+            .skill-item {
+                background: rgba(255, 255, 255, 0.05);
+                border-radius: 8px;
+                padding: 15px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+                transition: all 0.3s ease;
+            }
+    
+            .skill-item:hover {
+                transform: translateY(-5px);
+                background: rgba(100, 255, 218, 0.1);
+                box-shadow: 0 4px 20px rgba(100, 255, 218, 0.2);
+            }
+    
+            .skill-icon.devicon {
+                font-size: 32px;
+                color: var(--accent-color);
+            }
+    
+            .skill-name {
+                font-size: 14px;
+                text-align: center;
+                color: var(--text-color);
+            }
+    
+            @media (min-width: 1200px) {
+                .certificates-grid {
+                    grid-template-columns: repeat(3, 1fr);
+                }
+            }
+    
+            .content-creator-section {
+                background: var(--primary-color);
+                border: 1px solid var(--accent-color);
+                box-shadow: 0 0 20px rgba(100, 255, 255, 0.1);
+                padding: 40px;
+                border-radius: 10px;
+                margin-top: 30px;
+            }
+    
+            .section {
+                min-height: 100vh;
+                padding: 100px 100px;
+            }
+    
+            @media (max-width: 768px) {
+                .section {
+                    padding: 100px 20px;
+                }
+            }
+    
+            .contact-item {
+                padding: 20px;
+                border-radius: 8px;
+                transition: all 0.3s ease;
+            }
+    
+            .contact-item:hover {
+                background: var(--hover-color);
+                transform: translateY(-5px);
+            }
+    
+            footer a {
+                transition: all 0.3s ease;
+            }
+    
+            footer a:hover {
+                color: var(--accent-color) !important;
+            }
+        </style>
+    </head>
+    <body>
+        <section class="hero">
+            <div class="hero-content">
+                <p class="hero-subtitle"style="font-family: 'Dancing Script', cursive;">Hi , my name is ,</p>
+                
+                <h1 class="hero-title" style="font-family: 'Dancing Script', cursive;">
+                    Mohammed Arshath  A
+                    <br>
+                    <span style="color: var(--secondary-text)">B.Tech (AI & DS) with HONOURS in Full Stack Development</span>
+                </h1>
+                <p class="hero-description">
+                    A dedicated technologist focused on leveraging expertise in artificial intelligence, machine learning, and data structures to lead innovative projects and solve complex challenges within the technology sector. Passionate about content creation and video editing, crafting engaging digital media and visual storytelling that brings ideas to life.
+                </p>
+                <a href="C:\Users\mailf\OneDrive\Documents\portfolio\ResumeHW.pdf" class="cta-button">Resume</a>
+            </div>
+        </section>
+    
+        <section id="contact" class="section">
+            <h2>Get In Touch</h2>
+            <p style="color: var(--secondary-text); margin-top: 20px; max-width: 600px;">
+                I'm currently looking for new opportunities. Whether you have a question or just want to say hi, 
+                I'll try my best to get back to you!
+            </p>
+                <a href="mailto:mailforarshath@gmail.com" class="cta-button">Say Hello</a>
+    
+        </section>
+    
+        <section id="work" class="section">
+            <h2>Work Experience</h2>
+            
+            <!-- First Internship -->
+            <div style="color: var(--secondary-text); margin-top: 20px; border-left: 3px solid var(--accent-color); padding-left: 20px; margin-bottom: 30px;">
+                <h3 style="color: var(--accent-color);">Machine Learning Intern</h3>
+                <p style="font-size: 1.1em;">Kaashiv Infotech • Chennai</p>
+                <p style="font-style: italic; margin-top: 5px;">July 2023 - August 2023</p>
+                
+                <p style="margin-top: 15px; font-weight: 500;">Overview:</p>
+                <p style="margin-top: 5px;">Engaged in a machine learning internship focusing on developing and enhancing software for predictive analytics.</p>
+                
+                <p style="margin-top: 15px; font-weight: 500;">Key Responsibilities:</p>
+                <ul style="margin-top: 10px; margin-left: 20px;">
+                    <li>Remodeled existing airline price prediction software</li>
+                    <li>Focused on training data preprocessing and model optimization to improve prediction accuracy</li>
+                    <li>Gained hands-on experience in developing machine learning algorithms and data analysis</li>
+                </ul>
+                
+                <p style="margin-top: 15px; font-weight: 500;">Skills Acquired:</p>
+                <p style="margin-top: 5px;">Enhanced proficiency in machine learning processes, data preprocessing techniques, and software development methodologies.</p>
+            </div>
+    
+            <!-- Second Internship -->
+            <div style="color: var(--secondary-text); margin-top: 20px; border-left: 3px solid var(--accent-color); padding-left: 20px;">
+                <h3 style="color: var(--accent-color);">Embedded Systems with Artificial Intelligence Intern</h3>
+                <p style="font-size: 1.1em;">NSIC Technical Service Center • Chennai</p>
+                <p style="font-style: italic; margin-top: 5px;">May 2023</p>
+                
+                <p style="margin-top: 15px; font-weight: 500;">Overview:</p>
+                <p style="margin-top: 5px;">Participated in an internship centered around integrating artificial intelligence with embedded systems for practical applications.</p>
+                
+                <p style="margin-top: 15px; font-weight: 500;">Key Responsibilities:</p>
+                <ul style="margin-top: 10px; margin-left: 20px;">
+                    <li>Worked with Proteus software for circuit simulations</li>
+                    <li>Assembled and experimented with mid-level IoT kits</li>
+                    <li>Explored AI concepts in the context of embedded systems and IoT</li>
+                </ul>
+                
+                <p style="margin-top: 15px; font-weight: 500;">Skills Acquired:</p>
+                <p style="margin-top: 5px;">Hands-on experience in using simulation software, working with IoT hardware, and understanding the synergy between AI and embedded technologies.</p>
+            </div>
+        </section>
+    
+        <section id="projects" class="section">
+            <h2>Projects</h2>
+            <div style="margin-top: 20px;">
+                <div style="border: 1px solid var(--accent-color); padding: 30px; border-radius: 5px; background: rgba(100, 255, 255, 0.05);">
+                    <h3 style="color: var(--accent-color); font-size: 28px;">ClipVault</h3>
+                    <p style="color: var(--secondary-text); margin-top: 15px; line-height: 1.6;">
+                        ClipVault is designed for content creators who want to streamline their short-clip video production and enhance their creative process. Whether you're looking to craft engaging clips, edit with precision, or share impactful content, ClipVault is your go-to solution.
+                    </p>
+                    
+                    <div style="margin-top: 25px;">
+                        <h4 style="color: var(--accent-color); margin-bottom: 15px;">Key Features:</h4>
+                        <ul style="color: var(--secondary-text); list-style-type: none;">
+                            <li style="margin-bottom: 10px;">• AI-Powered Video Generation: Transform ideas into captivating 1-2 minute videos effortlessly.</li>
+                            <li style="margin-bottom: 10px;">• Image-to-Text & Gesture Control: Advanced tools that allow for hands-free control and seamless content generation.</li>
+                            <li style="margin-bottom: 10px;">• Text-to-Speech & Speech-to-Text: Break barriers in accessibility and interactivity by integrating audio and text features.</li>
+                            <li style="margin-bottom: 10px;">• Text-to-Image Generation: Bring your creative visions to life with AI-crafted visuals.</li>
+                            <li style="margin-bottom: 10px;">• User-Friendly Editing Templates: Access a variety of templates designed to enhance your editing experience.</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="margin-top: 25px;">
+                        <h4 style="color: var(--accent-color); margin-bottom: 15px;">Why ClipVault?</h4>
+                        <ul style="color: var(--secondary-text); list-style-type: none;">
+                            <li style="margin-bottom: 10px;">• Simplify content creation with AI-driven automation.</li>
+                            <li style="margin-bottom: 10px;">• Enhance storytelling through dynamic and adaptable templates.</li>
+                            <li style="margin-bottom: 10px;">• Create, edit, and share videos with professional quality and ease.</li>
+                        </ul>
+                    </div>
+                    
+                    <a href="https://clipvault.example.com" target="_blank" class="cta-button" style="margin-top: 25px;">
+                        <i class="fas fa-external-link-alt" style="margin-right: 10px;"></i>
+                        Visit Project Website
+                    </a>
+                </div>
+            </div>
+        </section>
+        </section>
+    
+        <section id="skills" class="section">
+            <h2>Skills & Expertise</h2>
+            
+            <div class="skills-category">
+                <h3>Programming Languages</h3>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <i class="devicon-python-plain skill-icon devicon"></i>
+                        <span class="skill-name">Python</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="devicon-javascript-plain skill-icon devicon"></i>
+                        <span class="skill-name">JavaScript</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="devicon-html5-plain skill-icon devicon"></i>
+                        <span class="skill-name">HTML5</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="devicon-css3-plain skill-icon devicon"></i>
+                        <span class="skill-name">CSS3</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="devicon-cplusplus-plain skill-icon devicon"></i>
+                        <span class="skill-name">C/C++</span>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="skills-category">
+                <h3>Frameworks & Libraries</h3>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <i class="devicon-react-original skill-icon devicon"></i>
+                        <span class="skill-name">React</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="devicon-nodejs-plain skill-icon devicon"></i>
+                        <span class="skill-name">Node.js</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="devicon-bootstrap-plain skill-icon devicon"></i>
+                        <span class="skill-name">Bootstrap</span>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="skills-category">
+                <h3>Tools & Technologies</h3>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <i class="devicon-git-plain skill-icon devicon"></i>
+                        <span class="skill-name">Git</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="devicon-mysql-plain skill-icon devicon"></i>
+                        <span class="skill-name">MySQL</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="devicon-vscode-plain skill-icon devicon"></i>
+                        <span class="skill-name">VS Code</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-aws skill-icon devicon"></i>
+                        <span class="skill-name">AWS</span>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="skills-category">
+                <h3>Content Creation</h3>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <i class="fab fa-youtube skill-icon devicon"></i>
+                        <span class="skill-name">YouTube</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-video skill-icon devicon"></i>
+                        <span class="skill-name">DaVinci Resolve</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-image skill-icon devicon"></i>
+                        <span class="skill-name">Pixellab</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-palette skill-icon devicon"></i>
+                        <span class="skill-name">Canva</span>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Content Creator Highlight -->
+            <div class="content-creator-section">
+                <h3 style="color: var(--accent-color);">Content Creator & YouTuber</h3>
+                <p style="color: var(--secondary-text); margin-top: 15px;">
+                    Known as <span style="color: var(--accent-color); font-weight: bold;">"Arshath__A"</span> on YouTube, I create engaging content focused on technology,
+                    programming, and digital creativity. Using professional tools like DaVinci Resolve for video editing,
+                    Pixellab for photo editing, and Canva for design, I produce high-quality educational and creative content.
+                </p>
+                <a href="https://youtube.com/@Arshath__A" target="_blank" class="cta-button" style="margin-top: 20px;">
+                    Visit My Channel
+                </a>
+            </div>
+        </section>
+    
+        <section id="certificates" class="section">
+            <h2>Certifications & Workshops</h2>
+            
+            <div style="color: var(--secondary-text); margin-bottom: 30px;">
+                <h3 style="color: var(--accent-color); margin-bottom: 15px;">Notable Certifications</h3>
+                <ul style="list-style: none;">
+                    <li style="margin-bottom: 10px;">• Google Certification in AI and Machine Learning</li>
+                    <li style="margin-bottom: 10px;">• Microsoft Certification in Data Structures and Algorithms</li>
+                    <li style="margin-bottom: 10px;">• HTML/CSS Certification</li>
+                    <li style="margin-bottom: 10px;">• IBM Data Science Professional Certificate (In Progress)</li>
+                </ul>
+    
+                <h3 style="color: var(--accent-color); margin: 20px 0 15px;">Workshops & Research</h3>
+                <ul style="list-style: none;">
+                    <li style="margin-bottom: 10px;">• AR/VR Workshop at NITPY - Advanced Wearables and Immersive Technologies</li>
+                    <li style="margin-bottom: 10px;">• Research Paper Presentation on "Artificial Intelligence" at ESEC</li>
+                    <li style="margin-bottom: 10px;">• Bug Bounty Achievement: Critical Vulnerability Discovery in <span style="color: var(--accent-color); font-weight: bold;">Disk Drill</span> Software
+                        <a href="https://drive.google.com/file/d/16zcTRauBKlDtDOShHj62COUkjWr1eCdH/view?usp=drive_link" class="cta-button" style="font-size: 12px; padding: 5px 10px; margin-left: 10px;">
+                            View Proof
+                        </a>
+                    </li>
+                </ul>
+            </div>
+    
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="https://drive.google.com/drive/folders/1kxY0lteW5Hu9j3tvZ2aYB9OcuTHWCNew?usp=drive_link" class="cta-button" style="display: inline-flex; align-items: center; gap: 10px;">
+                    <i class="fas fa-certificate"></i>
+                    View All Certificates
+                </a>
+            </div>
+        </section>
+    
+        <footer style="background: rgba(0, 0, 0, 0.95); padding: 50px 20px; text-align: center; margin-top: 50px;">
+            <div style="max-width: 1200px; margin: 0 auto;">
+                <h2 style="color: var(--accent-color); margin-bottom: 30px;">Let's Connect</h2>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-bottom: 40px;">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt" style="color: var(--accent-color); font-size: 24px; margin-bottom: 15px;"></i>
+                        <h3 style="color: var(--text-color); margin-bottom: 10px;">Location</h3>
+                        <p style="color: var(--secondary-text);">ERODE</p>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-envelope" style="color: var(--accent-color); font-size: 24px; margin-bottom: 15px;"></i>
+                        <h3 style="color: var(--text-color); margin-bottom: 10px;">Email</h3>
+                        <a href="mailto:mailforarshath@gmail.com" style="color: var(--secondary-text); text-decoration: none;">mailforarshath@gmail.com</a>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-phone" style="color: var(--accent-color); font-size: 24px; margin-bottom: 15px;"></i>
+                        <h3 style="color: var(--text-color); margin-bottom: 10px;">Phone</h3>
+                        <a href="tel:+919080096908" style="color: var(--secondary-text); text-decoration: none;">+91 90800 96908</a>
+                    </div>
+                </div>
+                
+                <div style="border-top: 1px solid var(--secondary-text); padding-top: 20px;">
+                    <p style="color: var(--secondary-text);">Developed by <span style="color: var(--accent-color); font-weight: bold;">Mohammed Arshath</span> | © 2024. All Rights Reserved.</p>
+                        <div style="display: flex; justify-content: center; gap: 20px; margin-top: 20px;">
+                            <a href="https://github.com/mohammedarshath-a" target="_blank" style="color: var(--secondary-text);"><i class="fab fa-github"></i></a>
+                            <a href="https://www.linkedin.com/in/mohammed-arshath-a-b95266246/" target="_blank" style="color: var(--secondary-text);"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://x.com/arshath__a" target="_blank" style="color: var(--secondary-text);"><i class="fab fa-twitter"></i></a>
+                            <a href="https://www.instagram.com/arshath__a/" target="_blank" style="color: var(--secondary-text);"><i class="fab fa-instagram"></i></a>
+                            <a href="https://youtube.com/@Arshath__A" target="_blank" style="color: var(--secondary-text);"><i class="fab fa-youtube"></i></a>
+                        </div>
+    
+                </div>
+            </div>
+        </footer>
+    
+        <div class="cursor"></div>
+        <div class="cursor-follower"></div>
+        <div class="particles" id="particles-js"></div>
+    
+        <nav>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#certificates">Certificates</a>
+                <a href="#work">Work</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+    
+        <div class="social-links">
+            <a href="https://github.com/mohammedarshath-a" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/mohammed-arshath-a-b95266246/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://x.com/arshath__a" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/arshath__a/" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://youtube.com/@Arshath__A" target="_blank"><i class="fab fa-youtube"></i></a>
+            <a href="mailto:mailforarshath@gmail.com"><i class="far fa-envelope"></i></a>
+        </div>
+    
+        <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+        <script>
+            // Custom cursor
+            const cursor = document.querySelector('.cursor');
+            const cursorFollower = document.querySelector('.cursor-follower');
+    
+            document.addEventListener('mousemove', (e) => {
+                cursor.style.transform = `translate(${e.clientX - 10}px, ${e.clientY - 10}px)`;
+                cursorFollower.style.transform = `translate(${e.clientX - 4}px, ${e.clientY - 4}px)`;
+            });
+    
+            // Particles.js configuration
+            particlesJS('particles-js', {
+                particles: {
+                    number: {
+                        value: 50,
+                        density: {
+                            enable: true,
+                            value_area: 800
+                        }
+                    },
+                color: {
+                    value: '#64ffff'  
+                    },
+                    shape: {
+                        type: 'circle'
+                    },
+                    opacity: {
+                        value: 0.5,
+                        random: true
+                    },
+                    size: {
+                        value: 3,
+                        random: true
+                    },
+                    line_linked: {
+                        enable: true,
+                        distance: 150,
+                        color: '#64ffff',  
+                        opacity: 0.2,
+                        width: 1
+                    },
+                    move: {
+                        enable: true,
+                        speed: 2,
+                        direction: 'none',
+                        random: true,
+                        straight: false,
+                        out_mode: 'out',
+                        bounce: false
+                    }
+                },
+                interactivity: {
+                    detect_on: 'canvas',
+                    events: {
+                        onhover: {
+                            enable: true,
+                            mode: 'grab'
+                        },
+                        onclick: {
+                            enable: true,
+                            mode: 'push'
+                        },
+                        resize: true
+                    },
+                    modes: {
+                        grab: {
+                            distance: 140,
+                            line_linked: {
+                                opacity: 1
+                            }
+                        },
+                        push: {
+                            particles_nb: 4
+                        }
+                    }
+                },
+                retina_detect: true
+            });
+    
+            // Hover effect for links
+            const links = document.querySelectorAll('a');
+            links.forEach(link => {
+                link.addEventListener('mouseenter', () => {
+                    cursor.style.transform = 'scale(1.5)';
+                    cursorFollower.style.transform = 'scale(1.5)';
+                });
+                link.addEventListener('mouseleave', () => {
+                    cursor.style.transform = 'scale(1)';
+                    cursorFollower.style.transform = 'scale(1)';
+                });
+            });
+    
+            // Add smooth scrolling behavior
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+    
+            // Add to existing JavaScript
+            document.getElementById('profileUpload').addEventListener('change', function(e) {
+                if(e.target.files && e.target.files[0]) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        this.parentElement.style.background = `url(${e.target.result}) center/cover`;
+                        this.parentElement.innerHTML = '';
+                    }.bind(this);
+                    reader.readAsDataURL(e.target.files[0]);
+                }
+            });
+    
+            document.getElementById('logoUpload').addEventListener('change', function(e) {
+                if(e.target.files && e.target.files[0]) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        this.parentElement.style.background = `url(${e.target.result}) center/cover`;
+                        this.parentElement.innerHTML = '';
+                    }.bind(this);
+                    reader.readAsDataURL(e.target.files[0]);
+                }
+            });
+        </script>
+    </body>
+    </html>
